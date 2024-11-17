@@ -1,6 +1,7 @@
 ---
 import { NavRedirect } from "../../consts/links";
 import Home from "@/icons/Home.astro";
+import List from "@/icons/List.astro";
 import Search from "@/icons/Search.astro";
 
 const currentPath = Astro.url.pathname;
@@ -36,7 +37,7 @@ const isActive = (url: string) => currentPath === url;
     >
       Contenido
     </h3>
-    <nav>
+    <nav class="mb-2">
       <ul class="space-y-1">
         {
           NavRedirect.map(({ Icon, label, to }) => (
@@ -54,15 +55,26 @@ const isActive = (url: string) => currentPath === url;
       </ul>
     </nav>
     <h3
-      class="px-2 py-1.5 text-[12px] font-normal my-1.5 transition-colors rounded-md hover:bg-white/5 text-white/50"
-    >
-      Publicaciones
-    </h3>
-    <h3
-      class="px-2 py-1.5 text-[12px] font-normal my-1.5 transition-colors rounded-md hover:bg-white/5 text-white/50"
+      class="px-2 py-1.5 text-[12px] font-normal mb-1 transition-colors rounded-md hover:bg-white/5 text-white/50"
     >
       Recursos
     </h3>
+    <h3
+      class="px-2 py-1.5 text-[12px] font-normal mb-1 transition-colors rounded-md hover:bg-white/5 text-white/50"
+    >
+      Publicaciones
+    </h3>
+    <nav class="mb-2">
+      <ul class="space-y-1">
+        <li>
+          <a
+            href="/posts"
+            class={`inline-flex gap-x-1 items-center w-full px-2 py-1.5 transition-colors rounded-md hover:bg-white/5 font-normal text-sm text-white/50 ${isActive("/posts") && "bg-white/5 text-white/90"}`}
+            ><List class="size-[18px]" /> Todas</a
+          >
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 
