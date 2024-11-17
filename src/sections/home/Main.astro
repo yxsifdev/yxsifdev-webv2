@@ -1,0 +1,102 @@
+---
+import Badge from "@/components/Badge.astro";
+import JavaScriptLogo from "../../../public/javascript-logo.webp";
+import CssLogo from "../../../public/css-logo.webp";
+import Section from "@/components/Section.astro";
+---
+
+<Section>
+  <h1 class="mb-5 text-3xl font-bold">🏠 yxsifdev</h1>
+  <div class="max-w-2xl space-y-2">
+    <p class="text-sm text-white/80">
+      Cuento con más de 2 años de experiencia como <span
+        class="font-medium text-white">Desarrollador Frontend</span
+      >.
+    </p>
+    <div class="flex flex-wrap gap-2">
+      <Badge class="border-blue-500 bg-blue-500/20">
+        <p>Quantum</p>
+      </Badge>
+      <Badge class="border-red-500 bg-red-500/20">
+        <p>Frontend Developer</p>
+      </Badge>
+    </div>
+  </div>
+</Section>
+
+<Section class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+  <div class="flex rounded-e-lg bg-white/5">
+    <img
+      src={JavaScriptLogo.src}
+      alt="jslogo"
+      class="object-cover h-full size-32 rounded-s-lg"
+    />
+    <div class="p-3 space-y-3">
+      <a
+        href="https://devtk.vercel.app/resources/js"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="text-yellow-400 hover:underline">JavaScript en el DOM</a
+      >
+      <ul class="flex flex-wrap gap-3 list-decimal list-inside">
+        <li>
+          <a href="/" class="text-sm hover:text-blue-500 text-white/50"
+            >Eventos del DOM</a
+          >
+        </li>
+        <li>
+          <a href="/" class="text-sm hover:text-blue-500 text-white/50"
+            >Manipulación de Clase y Estilos</a
+          >
+        </li>
+        <li>
+          <a href="/" class="text-sm hover:text-blue-500 text-white/50"
+            >Creación y Modificación de Elementos</a
+          >
+        </li>
+        <li>
+          <a href="/" class="text-sm hover:text-blue-500 text-white/50"
+            >Validación de Formularios</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex rounded-e-lg bg-white/5">
+    <img
+      src={CssLogo.src}
+      alt="jslogo"
+      class="object-cover h-full size-32 rounded-s-lg"
+    />
+    <div class="p-3 space-y-3">
+      <a
+        href="https://devtk.vercel.app/resources/css"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="text-sky-500 hover:underline">Inspiración CSS</a
+      >
+      <ul class="flex flex-wrap gap-3 list-decimal list-inside">
+        <li>
+          <a href="/" class="text-sm hover:text-blue-500 text-white/50"
+            >Diseños Modernos con Flexbox</a
+          >
+        </li>
+        <li>
+          <a href="/" class="text-sm hover:text-blue-500 text-white/50"
+            >Hover y Focus States</a
+          >
+        </li>
+        <li>
+          <a href="/" class="text-sm hover:text-blue-500 text-white/50"
+            >Animaciones con Keyframes</a
+          >
+        </li>
+        <li>
+          <a href="/" class="text-sm hover:text-blue-500 text-white/50"
+            >Usando Variables de CSS</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</Section>

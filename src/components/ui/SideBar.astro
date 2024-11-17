@@ -1,0 +1,95 @@
+---
+import { NavRedirect } from "../../consts/links";
+import Home from "@/icons/Home.astro";
+import Search from "@/icons/Search.astro";
+
+const currentPath = Astro.url.pathname;
+
+const isActive = (url: string) => currentPath === url;
+---
+
+<div class="border-r w-60 min-w-60 border-white/5 bg-primary">
+  <div class="px-2 py-1">
+    <h2
+      class="px-2 py-1.5 text-sm font-medium transition-colors rounded-md hover:bg-white/5 text-white/80 hover:text-blue-500 mb-2"
+    >
+      💻 @yxsifdev
+    </h2>
+    <nav class="mb-2 space-y-1">
+      <button
+        id="search-action"
+        class="inline-flex gap-x-1 items-center relative text-left w-full px-2 py-1.5 text-sm transition-colors text-white/50 font-normal rounded-md hover:bg-white/5"
+        ><Search class="size-[18px]" /> Buscar
+        <span
+          class="text-[11px] absolute right-0 border mr-2 border-white/10 rounded-md px-1"
+          >Ctrl + K</span
+        >
+      </button>
+      <a
+        href="/"
+        class={`inline-flex gap-x-1 items-center w-full px-2 py-1.5 transition-colors rounded-md hover:bg-white/5 font-normal text-sm text-white/50 ${isActive("/") && "bg-white/5 text-white/90"}`}
+        ><Home class="size-[18px]" /> Inicio</a
+      >
+    </nav>
+    <h3
+      class="px-2 py-1.5 text-[12px] font-normal mb-1 transition-colors rounded-md hover:bg-white/5 text-white/50"
+    >
+      Contenido
+    </h3>
+    <nav>
+      <ul class="space-y-1">
+        {
+          NavRedirect.map(({ Icon, label, to }) => (
+            <li>
+              <a
+                href={to}
+                class={`inline-flex gap-x-1 items-center w-full px-2 py-1.5 text-sm font-normal transition-colors rounded-md hover:bg-white/5 text-white/50 ${isActive(to) && "bg-white/5 text-white/90"}`}
+              >
+                <Icon class="size-[18px]" />
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <h3
+      class="px-2 py-1.5 text-[12px] font-normal my-1.5 transition-colors rounded-md hover:bg-white/5 text-white/50"
+    >
+      Publicaciones
+    </h3>
+    <h3
+      class="px-2 py-1.5 text-[12px] font-normal my-1.5 transition-colors rounded-md hover:bg-white/5 text-white/50"
+    >
+      Recursos
+    </h3>
+  </div>
+</div>
+
+<div
+  transition:persist
+  id="search-modal"
+  class="fixed inset-0 z-10 items-center justify-center hidden bg-black bg-opacity-50 select-none backdrop-blur-sm"
+>
+  <div class="p-4 border rounded-lg shadow-lg bg-white/5 border-white/5 w-96">
+    <input
+      id="search-value"
+      type="search"
+      placeholder="Buscar..."
+      class="w-full p-2 rounded-md outline-none bg-white/5 placeholder:text-white/50 text-white/80"
+    />
+    <br />
+    <div class="flex flex-col gap-y-2">
+      <h3 class="mt-2 text-xs text-white/80">Resultados...</h3>
+      <div id="search-results" class="space-y-2"></div>
+    </div>
+    <button
+      id="close-search-modal"
+      class="px-4 py-2 mt-4 text-blue-500 border border-blue-500 rounded bg-blue-500/10 hover:bg-blue-500/20"
+    >
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<script src="../../utils/showModal.ts"></script>

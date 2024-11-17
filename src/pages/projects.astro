@@ -1,0 +1,20 @@
+---
+import Hero from "@/sections/projects/Hero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import List from "@/sections/projects/List.astro";
+---
+
+<MainLayout title="yxsifdev - Proyectos">
+  <div class="flex justify-between">
+    <h1 class="text-sm opacity-80">💻 Proyectos</h1>
+    <a
+      href="https://github.com/yxsifdev"
+      rel="noopener noreferrer"
+      target="_blank"
+      class="p-2 text-sm text-blue-500 rounded-sm bg-blue-500/10 hover:bg-blue-500/20"
+      >Ver Repositorio</a
+    >
+  </div>
+  <Hero />
+  <List />
+</MainLayout>

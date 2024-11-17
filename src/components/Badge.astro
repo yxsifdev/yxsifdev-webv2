@@ -1,0 +1,13 @@
+---
+interface Props {
+  class: string;
+}
+const { class: stylebadge } = Astro.props;
+---
+
+<span
+  class={`inline-flex items-center px-2 py-0.5 text-sm border ${stylebadge} rounded-full gap-x-1 cursor-pointer`}
+>
+  <span class={`${stylebadge} border rounded-full size-3`}></span>
+  <slot />
+</span>
